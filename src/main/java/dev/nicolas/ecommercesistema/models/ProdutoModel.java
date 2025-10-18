@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 public class ProdutoModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
 
     private String nome;
 
