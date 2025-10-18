@@ -2,7 +2,6 @@ package dev.nicolas.ecommercesistema.models;
 
 import java.io.Serializable;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,16 +12,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table (name="estados")
+@Table(name = "produtos")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EstadoModel implements Serializable{
+public class ProdutoModel implements Serializable {
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
     private String nome;
 
-    private String sigla; 
+    private String descricao;
 }
