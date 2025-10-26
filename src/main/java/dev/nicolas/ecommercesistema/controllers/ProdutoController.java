@@ -9,6 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 import dev.nicolas.ecommercesistema.models.ProdutoModel;
 import dev.nicolas.ecommercesistema.repositories.ProdutoRepository;
 
+import java.util.Optional;
+
 @Controller
 public class ProdutoController {
 
@@ -25,10 +27,7 @@ public class ProdutoController {
     @PostMapping("/salvarProduto")
     public ModelAndView salvarProduto(ProdutoModel produto) {
         produtoRepository.save(produto);
-        ModelAndView mv = new ModelAndView("administrativo/produtos/cadastro");
-        mv.addObject("produto", new ProdutoModel());
-        mv.addObject("mensagem", "Produto salvo com sucesso!");
-        return mv;
+        return cadastrarProduto(new ProdutoModel());
     }
 
     @GetMapping("/listarProdutos")
@@ -36,5 +35,18 @@ public class ProdutoController {
         ModelAndView mv = new ModelAndView("administrativo/produtos/lista");
         mv.addObject("produtos", produtoRepository.findAll());
         return mv;
+    }
+
+    @GetMapping("editarProduto/{id}/")
+    public ModelAndView editarProduto(Long id) {
+        Optional<ProdutoModel> produto = produtoRepository.findById(id);
+        return cadastrarProduto(produto.get());
+    }
+
+    @GetMapping("removerProduto/{id}/")
+    public ModelAndView removerProduto(Long id) {
+        Optional<ProdutoModel> produto = produtoRepository.findById(id);
+        produtoRepository.delete(produto.get());
+        return cadastrarProduto(produto.get());
     }
 }
