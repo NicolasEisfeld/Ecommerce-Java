@@ -14,31 +14,31 @@
             <a class="navbar-brand" href="#">
                 <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
             </a>
-            <a class="navbar-brand" href="#">E-Commerce</a>
+            <a class="navbar-brand" href="#">E-Commerce Sistema</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+                aria-label="Alternar navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">Sobre</a>
                     </li>
                 </ul>
 
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" />
                     <button class="btn btn-outline-light" type="submit">Buscar</button>
                 </form>
             </div>
         </div>
     </nav>
     <div class="container">
-        <form action="/salvarProduto" th:object="${produto}" method="POST">
+        <form action="/administrativo/salvarProduto" th:object="${produto}" method="POST">
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome do Produto</label>
                 <input type="text" class="form-control" id="nome" aria-describedby="nomeHelp" th:field="*{nome}">
@@ -49,8 +49,8 @@
                 <input type="text" class="form-control" id="descricao" aria-describedby="descricaoHelp" th:field="*{descricao}">
                 <div id="descricaoHelp" class="form-text">Digite a descrição do produto</div>
             </div>
-            <a href="/administrativo" formaction="/administrativo" class="btn btn-secondary">Voltar</a>
-            <button type="submit" formaction="/salvarProduto" class="btn btn-primary">Salvar</button>
+            <a href="/administrativo" class="btn btn-secondary">Voltar ao Painel</a>
+            <button type="submit" class="btn btn-primary">Salvar Produto</button>
         </form>
 
 
